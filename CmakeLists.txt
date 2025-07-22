@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(comp_vision)
+
+set(OPENCV_MAP_IMPORTED_CONFIG "")
+
+find_package(OpenCV REQUIRED world)
+
+find_package(Eigen3 REQUIRED)
+
+find_package(Ceres REQUIRED)
+
+add_subdirectory(comp_vis_lib)
+
+add_subdirectory(app)
