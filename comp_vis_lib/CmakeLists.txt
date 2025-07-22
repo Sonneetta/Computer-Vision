@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.5)
+
+file(GLOB_RECURSE SRCS *.[ch]pp)
+
+add_library(comp_vis_lib STATIC ${SRCS})
+
+target_include_directories(comp_vis_lib SYSTEM PUBLIC
+${CERES_INCLUDE_DIRS}
+$ENV{EIGEN3_INCLUDE_DIR}
+${OpenCV_INCLUDE_DIRS} INTERFACE
+${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(comp_vis_lib PUBLIC
+${CERES_LIBRARIES} Eigen3::Eigen ${OpenCV_LIBS})
